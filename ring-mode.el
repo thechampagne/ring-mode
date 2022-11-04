@@ -865,11 +865,13 @@
    `(,(concat (regexp-opt (ring-builtins) 'symbols)  "[[:space:]]*(") . (1 font-lock-builtin-face ))
    `(,(regexp-opt (ring-operators)) . font-lock-builtin-face)))
 
+;;;###autoload
 (define-derived-mode ring-mode prog-mode "Ring"
   "A major mode for the Ring programming language."
   :syntax-table ring-mode-syntax-table
   (setq-local font-lock-defaults '(ring-font-lock-keywords)))
 
+;;;###autoload
 (add-to-list 'auto-mode-alist '("\\.ring\\'" . ring-mode))
 
 (provide 'ring-mode)
