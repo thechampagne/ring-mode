@@ -690,7 +690,7 @@
 
 ;;;;; Using package manager
 
-;; Add the following to your emacs config file
+;; Add the following to your Emacs config file
 
 ;; (require 'package)
 ;; (add-to-list 'package-archives
@@ -702,11 +702,11 @@
 
 ;;;;; Manual
 
-;; Download the mode to your local directory. You can do it through `git clone` command:
+;; Download the mode to your local directory.  You can do it through `git clone` command:
 
 ;; git clone git://github.com/thechampagne/ring-mode.git
 
-;; Then add path to ring-mode to load-path list — add the following to your emacs config file
+;; Then add path to ring-mode to load-path list — add the following to your Emacs config file
 
 ;; (add-to-list 'load-path
 ;; 	     "/path/to/ring-mode/")
