@@ -55,7 +55,7 @@
 
 ;;; Code:
 
-(defvar ring-mode-syntax-table
+(defconst ring-mode-syntax-table
   (let ((table (make-syntax-table)))
     (modify-syntax-entry ?/ ". 124b" table)
     (modify-syntax-entry ?* ". 23" table)
@@ -65,7 +65,7 @@
     table))
 
 
-;;(defun ring-keywords()
+;;(defconst ring-keywords
 ;;  '("again" "and" "but" "bye" "call" "case" "catch" "changeringkeyword"
 ;;    "changeringoperator" "class" "def" "do" "done" "else" "elseif" "end"
 ;;    "exit" "for" "from" "func" "get" "give" "if" "import" "in" "load"
@@ -75,8 +75,8 @@
 ;;    "endswitch" "endtry" "function" "endfunction" "break" "continue"))
 
 
-(defun ring-keywords()
-  "Ring programming language keywords."
+(defconst ring-keywords
+  ;;"Ring programming language keywords."
   '("[a\\|A][g\\|G][a\\|A][i\\|I][n\\|N]\\|"                                                                                                        ;; again
     "[a\\|A][n\\|N][d\\|D]\\|"                                                                                                                      ;; and
     "[b\\|B][u\\|U][t\\|T]\\|"                                                                                                                      ;; but
@@ -137,8 +137,8 @@
     "[c\\|C][o\\|O][n\\|N][t\\|T][i\\|I][n\\|N][u\\|U][e\\|E]"                                                                                      ;; continue
     ))
 
-(defun ring-builtins()
-  "Ring programming language builtins."
+(defconst ring-builtins
+  ;;"Ring programming language builtins."
   '("acos" "add" "addattribute" "adddays" "addmethod" "addsublistsbyfastcopy" "addsublistsbymove"
     "ascii" "asin" "assert" "atan" "atan2" "attributes" "binarysearch" "bytes2double"
     "bytes2float" "bytes2int" "callgarbagecollector" "callgc" "ceil" "cfunctions" "char" "chdir"
@@ -175,8 +175,8 @@
     "upper" "uptime" "variablepointer" "varptr" "version" "windowsnl" "write"))
 
 
-(defun ring-operators()
-  "Ring programming language operators."
+(defconst ring-operators
+  ;;"Ring programming language operators."
   '(
     ;; Arithmetic operators
     "+" "-" "*" "/" "%" "++" "--"
@@ -195,14 +195,14 @@
     ;; Other operators
     ":" "." "?"))
 
-(defun ring-font-lock-keywords ()
-  "Ring programming language font lock keywords."
+(defconst ring-font-lock-keywords
+  ;;"Ring programming language font lock keywords."
   (list
    `("\\(#.*\\)" . font-lock-comment-face)
    `("\\<\\([T\\|t][R\\|r][U\\|u][E\\|e]\\|[F\\|f][A\\|a][L\\|l][S\\|s][E\\|e]\\)\\>" . font-lock-constant-face)
-   `(,(concat "\\<\\(" (mapconcat 'identity (ring-keywords) "") "\\)\\>") . font-lock-keyword-face)
-   `(,(concat (regexp-opt (ring-builtins) 'symbols)  "[[:space:]]*(") . (1 font-lock-builtin-face ))
-   `(,(regexp-opt (ring-operators)) . font-lock-builtin-face)))
+   `(,(concat "\\<\\(" (mapconcat 'identity ring-keywords "") "\\)\\>") . font-lock-keyword-face)
+   `(,(concat (regexp-opt ring-builtins 'symbols)  "[[:space:]]*(") . (1 font-lock-builtin-face ))
+   `(,(regexp-opt ring-operators) . font-lock-builtin-face)))
 
 ;;;###autoload
 (define-derived-mode ring-mode prog-mode "Ring"
