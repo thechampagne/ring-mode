@@ -76,7 +76,6 @@
 
 
 (defconst ring-keywords
-  ;;"Ring programming language keywords."
   '("[a\\|A][g\\|G][a\\|A][i\\|I][n\\|N]\\|"                                                                                                        ;; again
     "[a\\|A][n\\|N][d\\|D]\\|"                                                                                                                      ;; and
     "[b\\|B][u\\|U][t\\|T]\\|"                                                                                                                      ;; but
@@ -138,7 +137,6 @@
     ))
 
 (defconst ring-builtins
-  ;;"Ring programming language builtins."
   '("acos" "add" "addattribute" "adddays" "addmethod" "addsublistsbyfastcopy" "addsublistsbymove"
     "ascii" "asin" "assert" "atan" "atan2" "attributes" "binarysearch" "bytes2double"
     "bytes2float" "bytes2int" "callgarbagecollector" "callgc" "ceil" "cfunctions" "char" "chdir"
@@ -176,7 +174,6 @@
 
 
 (defconst ring-operators
-  ;;"Ring programming language operators."
   '(
     ;; Arithmetic operators
     "+" "-" "*" "/" "%" "++" "--"
@@ -196,7 +193,6 @@
     ":" "." "?"))
 
 (defconst ring-font-lock-keywords
-  ;;"Ring programming language font lock keywords."
   (list
    `("\\(#.*\\)" . font-lock-comment-face)
    `("\\<\\([T\\|t][R\\|r][U\\|u][E\\|e]\\|[F\\|f][A\\|a][L\\|l][S\\|s][E\\|e]\\)\\>" . font-lock-constant-face)
