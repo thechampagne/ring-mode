@@ -65,77 +65,6 @@
     table))
 
 
-;;(defconst ring-keywords
-;;  '("again" "and" "but" "bye" "call" "case" "catch" "changeringkeyword"
-;;    "changeringoperator" "class" "def" "do" "done" "else" "elseif" "end"
-;;    "exit" "for" "from" "func" "get" "give" "if" "import" "in" "load"
-;;    "loadsyntax" "loop" "new" "next" "not" "off" "ok" "on" "or" "other"
-;;    "package" "private" "put" "return" "see" "step" "switch" "to" "try"
-;;    "while" "endfunc" "endclass" "endpackage" "endif" "endfor" "endwhile"
-;;    "endswitch" "endtry" "function" "endfunction" "break" "continue"))
-
-
-(defconst ring-keywords
-  '("[a\\|A][g\\|G][a\\|A][i\\|I][n\\|N]\\|"                                                                                                        ;; again
-    "[a\\|A][n\\|N][d\\|D]\\|"                                                                                                                      ;; and
-    "[b\\|B][u\\|U][t\\|T]\\|"                                                                                                                      ;; but
-    "[b\\|B][y\\|Y][e\\|E]\\|"                                                                                                                      ;; bye
-    "[c\\|C][a\\|A][l\\|L][l\\|L]\\|"                                                                                                               ;; call
-    "[c\\|C][a\\|A][s\\|S][e\\|E]\\|"                                                                                                               ;; case
-    "[c\\|C][a\\|A][t\\|T][c\\|C][h\\|H]\\|"                                                                                                        ;; catch
-    "[c\\|C][h\\|H][a\\|A][n\\|N][g\\|G][e\\|E][r\\|R][i\\|I][n\\|N][g\\|G][k\\|K][e\\|E][y\\|Y][w\\|W][o\\|O][r\\|R][d\\|D]\\|"                    ;; changeringkeyword
-    "[c\\|C][h\\|H][a\\|A][n\\|N][g\\|G][e\\|E][r\\|R][i\\|I][n\\|N][g\\|G][o\\|O][p\\|P][e\\|E][r\\|R][a\\|A][t\\|T][o\\|O][r\\|R]\\|"             ;; changeringoperator
-    "[c\\|C][l\\|L][a\\|A][s\\|S][s\\|S]\\|"                                                                                                        ;; class
-    "[d\\|D][e\\|E][f\\|F]\\|"                                                                                                                      ;; def
-    "[d\\|D][o\\|O]\\|"                                                                                                                             ;; do
-    "[d\\|D][o\\|O][n\\|N][e\\|E]\\|"                                                                                                               ;; done
-    "[e\\|E][l\\|L][s\\|S][e\\|E]\\|"                                                                                                               ;; else
-    "[e\\|E][l\\|L][s\\|S][e\\|E][i\\|I][f\\|F]\\|"                                                                                                 ;; elseif
-    "[e\\|E][n\\|N][d\\|D]\\|"                                                                                                                      ;; end
-    "[e\\|E][x\\|X][i\\|I][t\\|T]\\|"                                                                                                               ;; exit
-    "[f\\|F][o\\|O][r\\|R]\\|"                                                                                                                      ;; for
-    "[f\\|F][r\\|R][o\\|O][m\\|M]\\|"                                                                                                               ;; from
-    "[f\\|F][u\\|U][n\\|N][c\\|C]\\|"                                                                                                               ;; func
-    "[g\\|G][e\\|E][t\\|T]\\|"                                                                                                                      ;; get
-    "[g\\|G][i\\|I][v\\|V][e\\|E]\\|"                                                                                                               ;; give
-    "[i\\|I][f\\|F]\\|"                                                                                                                             ;; if
-    "[i\\|I][m\\|M][p\\|P][o\\|O][r\\|R][t\\|T]\\|"                                                                                                 ;; import
-    "[i\\|I][n\\|N]\\|"                                                                                                                             ;; in
-    "[l\\|L][o\\|O][a\\|A][d\\|D]\\|"                                                                                                               ;; load
-    "[l\\|L][o\\|O][a\\|A][d\\|D][s\\|S][y\\|Y][n\\|N][t\\|T][a\\|A][x\\|X]\\|"                                                                     ;; loadsyntax
-    "[l\\|L][o\\|O][o\\|O][p\\|P]\\|"                                                                                                               ;; loop
-    "[n\\|N][e\\|E][w\\|W]\\|"                                                                                                                      ;; new
-    "[n\\|N][e\\|E][x\\|X][t\\|T]\\|"                                                                                                               ;; next
-    "[n\\|N][o\\|O][t\\|T]\\|"                                                                                                                      ;; not
-    "[o\\|O][f\\|F][f\\|F]\\|"                                                                                                                      ;; off
-    "[o\\|O][k\\|K]\\|"                                                                                                                             ;; ok
-    "[o\\|O][n\\|N]\\|"                                                                                                                             ;; on
-    "[o\\|O][r\\|R]\\|"                                                                                                                             ;; or
-    "[o\\|O][t\\|T][h\\|H][e\\|E][r\\|R]\\|"                                                                                                        ;; other
-    "[p\\|P][a\\|A][c\\|C][k\\|K][a\\|A][g\\|G][e\\|E]\\|"                                                                                          ;; package
-    "[p\\|P][r\\|R][i\\|I][v\\|V][a\\|A][t\\|T][e\\|E]\\|"                                                                                          ;; private
-    "[p\\|P][u\\|U][t\\|T]\\|"                                                                                                                      ;; put
-    "[r\\|R][e\\|E][t\\|T][u\\|U][r\\|R][n\\|N]\\|"                                                                                                 ;; return
-    "[s\\|S][e\\|E][e\\|E]\\|"                                                                                                                      ;; see
-    "[s\\|S][t\\|T][e\\|E][p\\|P]\\|"                                                                                                               ;; step
-    "[s\\|S][w\\|W][i\\|I][t\\|T][c\\|C][h\\|H]\\|"                                                                                                 ;; switch
-    "[t\\|T][o\\|O]\\|"                                                                                                                             ;; to
-    "[t\\|T][r\\|R][y\\|Y]\\|"                                                                                                                      ;; try
-    "[w\\|W][h\\|H][i\\|I][l\\|L][e\\|E]\\|"                                                                                                        ;; while
-    "[e\\|E][n\\|N][d\\|D][f\\|F][u\\|U][n\\|N][c\\|C]\\|"                                                                                          ;; endfunc
-    "[e\\|E][n\\|N][d\\|D][c\\|C][l\\|L][a\\|A][s\\|S][s\\|S]\\|"                                                                                   ;; endclass
-    "[e\\|E][n\\|N][d\\|D][p\\|P][a\\|A][c\\|C][k\\|K][a\\|A][g\\|G][e\\|E]\\|"                                                                     ;; endpackage
-    "[e\\|E][n\\|N][d\\|D][i\\|I][f\\|F]\\|"                                                                                                        ;; endif
-    "[e\\|E][n\\|N][d\\|D][f\\|F][o\\|O][r\\|R]\\|"                                                                                                 ;; endfor
-    "[e\\|E][n\\|N][d\\|D][w\\|W][h\\|H][i\\|I][l\\|L][e\\|E]\\|"                                                                                   ;; endwhile
-    "[e\\|E][n\\|N][d\\|D][s\\|S][w\\|W][i\\|I][t\\|T][c\\|C][h\\|H]\\|"                                                                            ;; endswitch
-    "[e\\|E][n\\|N][d\\|D][t\\|T][r\\|R][y\\|Y]\\|"                                                                                                 ;; endtry
-    "[f\\|F][u\\|U][n\\|N][c\\|C][t\\|T][i\\|I][o\\|O][n\\|N]\\|"                                                                                   ;; function
-    "[e\\|E][n\\|N][d\\|D][f\\|F][u\\|U][n\\|N][c\\|C][t\\|T][i\\|I][o\\|O][n\\|N]\\|"                                                              ;; endfunction
-    "[b\\|B][r\\|R][e\\|E][a\\|A][k\\|K]\\|"                                                                                                        ;; break
-    "[c\\|C][o\\|O][n\\|N][t\\|T][i\\|I][n\\|N][u\\|U][e\\|E]"                                                                                      ;; continue
-    ))
-
 (defconst ring-builtins
   '("acos" "add" "addattribute" "adddays" "addmethod" "addsublistsbyfastcopy" "addsublistsbymove"
     "ascii" "asin" "assert" "atan" "atan2" "attributes" "binarysearch" "bytes2double"
@@ -192,11 +121,35 @@
     ;; Other operators
     ":" "." "?"))
 
+
+(defun ring-keywords (limit)
+  "Match case-insensitive ring keywords up to limit."
+  (let ((case-fold-search t))
+    (re-search-forward
+     (rx word-boundary (or "again" "and" "but" "bye" "call" "case" "catch" "changeringkeyword"
+			   "changeringoperator" "class" "def" "do" "done" "else" "elseif" "end"
+			   "exit" "for" "from" "func" "get" "give" "if" "import" "in" "load"
+			   "loadsyntax" "loop" "new" "next" "not" "off" "ok" "on" "or" "other"
+			   "package" "private" "put" "return" "see" "step" "switch" "to" "try"
+			   "while" "endfunc" "endclass" "endpackage" "endif" "endfor" "endwhile"
+			   "endswitch" "endtry" "function" "endfunction" "break" "continue")
+	 word-boundary)
+     limit 'no-error)))
+
+
+(defun ring-constants (limit)
+  "Match case-insensitive ring constants up to limit."
+  (let ((case-fold-search t))
+    (re-search-forward
+     (rx word-boundary (or "true" "false") word-boundary)
+     limit 'no-error)))
+
+
 (defconst ring-font-lock-keywords
   (list
    `("\\(#.*\\)" . font-lock-comment-face)
-   `("\\<\\([T\\|t][R\\|r][U\\|u][E\\|e]\\|[F\\|f][A\\|a][L\\|l][S\\|s][E\\|e]\\)\\>" . font-lock-constant-face)
-   `(,(concat "\\<\\(" (mapconcat 'identity ring-keywords "") "\\)\\>") . font-lock-keyword-face)
+   `(ring-constants . font-lock-constant-face)
+   `(ring-keywords  . font-lock-keyword-face)
    `(,(concat (regexp-opt ring-builtins 'symbols)  "[[:space:]]*(") . (1 font-lock-builtin-face ))
    `(,(regexp-opt ring-operators) . font-lock-builtin-face)))
 
@@ -204,7 +157,9 @@
 (define-derived-mode ring-mode prog-mode "Ring"
   "A major mode for the Ring programming language."
   :syntax-table ring-mode-syntax-table
-  (setq-local font-lock-defaults '(ring-font-lock-keywords)))
+  (setq-local font-lock-defaults '(ring-font-lock-keywords))
+  (setq-local comment-start "# ")
+  (setq-local comment-end ""))
 
 ;;;###autoload
 (add-to-list 'auto-mode-alist '("\\.ring\\'" . ring-mode))
